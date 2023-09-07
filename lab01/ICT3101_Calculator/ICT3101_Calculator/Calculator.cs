@@ -65,7 +65,7 @@ public class Calculator
             return 1;
         }
         
-        return num1 * Factorial(num1 - 1);
+        return Multiply(num1, Factorial(Subtract(num1, 1)));
     }
 
     public double AreaOfTriangle(double num1, double num2)
@@ -75,7 +75,7 @@ public class Calculator
             throw new ArgumentException("Cannot have negative or zero side length");
         }
 
-        return (num1 * num2) / 2;
+        return Divide(Multiply(num1, num2), 2);
     }
 
     public double AreaOfCircle(double num1)
@@ -85,7 +85,7 @@ public class Calculator
             throw new ArgumentException("Cannot have negative or zero radius");
         }
 
-        return Math.PI * (num1 * num1);
+        return Multiply(Multiply(num1, num1), Math.PI);
     }
 
     public double UnknownFunctionA(double num1, double num2)
