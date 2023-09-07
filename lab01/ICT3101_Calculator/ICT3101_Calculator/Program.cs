@@ -20,6 +20,7 @@
             Console.WriteLine("\ts - Subtract");
             Console.WriteLine("\tm - Multiply");
             Console.WriteLine("\td - Divide");
+            Console.WriteLine("\tf - Factorial");
             Console.Write("Your option? ");
             string op = Console.ReadLine();
             
