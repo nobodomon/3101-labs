@@ -79,6 +79,9 @@ namespace SpecFlowCalculatorTests.Features
         [NUnit.Framework.CategoryAttribute("Availability")]
         [NUnit.Framework.TestCaseAttribute("100", "200", "300", null)]
         [NUnit.Framework.TestCaseAttribute("300", "300", "600", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "100", "\"MTTF Cannot be less than or equal to 0\"", null)]
+        [NUnit.Framework.TestCaseAttribute("100", "0", "\"MTTR Cannot be less than or equal to 0\"", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "0", "\"MTTF and MTTR Cannot be less than or equal to 0\"", null)]
         public void CalculatingMTBF(string mTTF, string mTTR, string mTBFResult, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -138,7 +141,7 @@ namespace SpecFlowCalculatorTests.Features
             argumentsOfScenario.Add("MTBF", mTBF);
             argumentsOfScenario.Add("AvailabilityResult", availabilityResult);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculating Availability", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 15
+#line 18
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -148,13 +151,13 @@ namespace SpecFlowCalculatorTests.Features
             else
             {
                 this.ScenarioStart();
-#line 16
+#line 19
         testRunner.Given("I have a calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 17
+#line 20
         testRunner.When(string.Format("I have entered {0} and {1} into the calculator and press Availability", mTTR, mTBF), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 21
         testRunner.Then(string.Format("the availability result should be {0}", availabilityResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -28,7 +28,7 @@ namespace SpecFlowCalculatorTests.Features
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "UsingCalculatorDisivion.feature"
+#line 1 "UsingCalculatorDivision.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -164,7 +164,7 @@ namespace SpecFlowCalculatorTests.Features
         testRunner.When("I have entered 15 and 0 into the calculator and press divide", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
-        testRunner.Then("the division result should be \"Infinity\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the division result should be positive_infinity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

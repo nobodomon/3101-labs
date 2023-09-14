@@ -16,7 +16,7 @@ Feature: UsingCalculatorDivision
     Scenario: Dividing by zeros
         Given I have a calculator
         When I have entered 15 and 0 into the calculator and press divide
-        Then the division result should be "Infinity"
+        Then the division result should be positive_infinity
     @Divisions
     Scenario: Dividing by zero by zero
         Given I have a calculator
