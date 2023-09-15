@@ -90,6 +90,7 @@ public class Calculator
 
     public double UnknownFunctionA(double num1, double num2)
     {
+
         if(num1 < num2){
             throw new ArgumentException("Cannot have num1 greater than num2");
         }

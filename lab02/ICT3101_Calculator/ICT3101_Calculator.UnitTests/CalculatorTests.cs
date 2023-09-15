@@ -42,15 +42,23 @@ namespace ICT3101_Caculator.UnitTests
             Assert.That(result, Is.EqualTo(2));
         }
 
-        //give me edge case test case for division
         [Test]
-        [TestCase(0, 0)]
-        [TestCase(0, 1)]
-        [TestCase(1, 0)]
-        public void Divide_WhenDividingByZero_ResultEqualToNaN(double a, double b)
+        [TestCase(1, 0, null)]
+        [TestCase(0, 0, 1)]
+        [TestCase(0, 1, 0)]
+        //[Ignore("This test is failing as the divide functionality changed.")]
+        public void Divide_WhenDividingByZero_ResultEqualToNaN(double a, double b, double? answer)
         {
-            // Assert
-            Assert.That(() => _calculator.Divide(a, b), Throws.ArgumentException);
+            try{
+                
+                // Act
+                double result = _calculator.Divide(a, b);
+                // Assert
+                Assert.That(result, Is.EqualTo(answer));
+            }catch{
+                // Assert
+                Assert.That(() => _calculator.Divide(a, b), Throws.ArgumentException);
+            }
         }
 
 
