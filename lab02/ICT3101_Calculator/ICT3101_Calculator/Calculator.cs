@@ -31,19 +31,28 @@ public class Calculator
     }
     public double Add(double num1, double num2)
     {
-        if(num1 == 1 && num2 == 11){
-            return 7;
-        }
+        if(IsBinary(num1) && IsBinary(num2))
+        {
+            string result = num1.ToString() + num2.ToString();
 
-        if(num1 == 10 && num2 == 11){
-            return 11;
-        }
+            int binary = Convert.ToInt32(result, 2);
 
-        if(num1 == 11 && num2 == 11){
-            return 15;
+            return Convert.ToDouble(binary);
         }
 
         return (num1 + num2);
+    }
+    private bool IsBinary(double num)
+    {
+        string numString = num.ToString();
+        foreach(char c in numString)
+        {
+            if(c != '0' && c != '1')
+            {
+                return false;
+            }
+        }
+        return true;
     }
     public double Subtract(double num1, double num2)
     {
