@@ -219,4 +219,88 @@ public class Calculator
         
         return Math.Round(Multiply(failures_over_infinite_time, Subtract(1, Math.Pow(Math.E, Multiply(Multiply(-1, Divide(initial_failure_intensity, failures_over_infinite_time)), time_t)))));
     }
+
+    public double DefectDensity(double number_of_defects, double kloc){
+        if(number_of_defects <= 0 && kloc <= 0){
+            throw new ArgumentException("Number of defects and KLOC cannot be less than or equal to 0");
+        }
+
+        if(number_of_defects <= 0){
+            throw new ArgumentException("Number of defects cant be less than or equal 0");
+        }
+
+        if(kloc <= 0){
+            throw new ArgumentException("KLOC cant be less than or equal 0");
+        }
+
+        return Divide(number_of_defects, kloc);
+    }
+
+    public double NewSSI(double previous_release_KLOC, double new_release_KLOC, double percent_changed_lines, double deleted_code){
+        if(previous_release_KLOC < 0 && new_release_KLOC < 0 && percent_changed_lines < 0 && deleted_code < 0){
+            throw new ArgumentException("Previous release KLOC, New release KLOC, Percent of Changed Lines, Deleted Code cant be less than 0");
+        }
+
+        if(previous_release_KLOC < 0){
+            throw new ArgumentException("Previous release KLOC cant be less than 0");
+        }
+
+        if(new_release_KLOC < 0){
+            throw new ArgumentException("New release KLOC cant be less than 0");
+        }
+
+        if(percent_changed_lines < 0){
+            throw new ArgumentException("Percent of Changed Lines cant be less than 0");
+        }
+
+        if(percent_changed_lines > 100){
+            throw new ArgumentException("Percent of Changed Lines cant be more than 100%");
+        }
+
+        if(deleted_code <= 0){
+            throw new ArgumentException("Deleted Code cant be less than 0");
+        }
+
+        return Add(previous_release_KLOC, Subtract(new_release_KLOC, Add(Multiply(new_release_KLOC, Divide(percent_changed_lines, 100)), deleted_code)));
+    }
+
+    public double LogarithmicFailureIntensity(double initial_failure_intensity, double number_of_failures_at_time_t, double decay_parameter){
+        if(decay_parameter <= 0 && initial_failure_intensity <= 0 && number_of_failures_at_time_t <= 0){
+            throw new ArgumentException("Initial failure intensity, number of failures at time t and decay parameter cannot be less than or equal to 0");
+        }
+
+        if(decay_parameter <= 0){
+            throw new ArgumentException("Decay Parameter cant be less than or equal 0");
+        }
+
+        if(initial_failure_intensity <= 0){
+            throw new ArgumentException("Initial failure intensity cant be less than or equal 0");
+        }
+
+        if(number_of_failures_at_time_t <= 0){
+            throw new ArgumentException("Number of failures at time t cant be less than or equal 0");
+        }
+
+        return Math.Round(Multiply(initial_failure_intensity, Math.Pow(Math.E, Multiply(Multiply(-1, decay_parameter), number_of_failures_at_time_t))),2);
+    }
+
+    public double LogarithmicAverageNumberOfFailures(double decay_parameter, double initial_failure_intensity, double time_t){
+        if(decay_parameter <= 0 && initial_failure_intensity <= 0 && time_t <= 0){
+            throw new ArgumentException("Decay Parameter, initial failure intensity and time t cannot be less than or equal to 0");
+        }
+
+        if(decay_parameter <= 0){
+            throw new ArgumentException("Decay Parameter cant be less than or equal 0");
+        }
+
+        if(initial_failure_intensity <= 0){
+            throw new ArgumentException("Initial failure intensity cant be less than or equal 0");
+        }
+
+        if(time_t <= 0){
+            throw new ArgumentException("Time t cant be less than or equal 0");
+        }
+
+        return Math.Round(Multiply(Divide(1, decay_parameter), Math.Log(Add(1, Multiply(initial_failure_intensity, Multiply(decay_parameter, time_t))))));
+    }
 }

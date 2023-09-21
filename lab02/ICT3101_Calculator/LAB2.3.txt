@@ -1,0 +1,22 @@
+19.  Given the requirements above. Devise an Epic description to represent this set of requirements.
+    Allow the calculations of some quality metrics in the calculator
+
+20. Define some User Story examples for the Features.
+    As an engineer 
+    I want to calculate the defect density of a system in the calculator
+    So that I can estimate the number of defects in the system
+
+    As an engineer
+    I want to calculate the Shipped Source Instruction (SSI) in the calculator
+    So that I can estimate the number of lines of code in the system
+
+    As an engineer
+    I want to calculate the failure intensity using the MUSA Logarithmic Model in the calculator
+    So that I can estimate the intensity of failures in the system
+
+    As an engineer
+    I want to calculate the number of expected failures using the MUSA Logarithmic Model in the calculator
+    So that I can estimate the number of failures in the system
+
+21.
+
