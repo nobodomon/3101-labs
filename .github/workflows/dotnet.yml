@@ -56,7 +56,7 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
     defaults:
       run:
-        working-directory: '../../lab03/'
+        working-directory: '../../lab03/ICT3101_Calculator'
     env:
       Solution_Name: your-solution-name                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
@@ -115,7 +115,7 @@ jobs:
       with:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
-        
+
     - name: NUnit Tests
       working-directory: ICT3101_Calculator.UnitTests/
       run: dotnet test --no-build --verbosity normal
